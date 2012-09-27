@@ -1,2 +1,9 @@
-<h1>GarmentDescriptions#index</h1>
-<p>Find me in app/views/garment_descriptions/index.html.erb</p>
+<h1>Garment Descriptions</h1>
+
+<%= link_to "New", new_garment_description_path %>
+
+<% @garment_descriptions.each do |g| %>
+  <p>
+    <%= link_to g.description, g %>
+  </p>
+<% end %>
