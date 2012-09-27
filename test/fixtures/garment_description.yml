@@ -1,0 +1,7 @@
+trousers:
+  id: 1
+  description: Navy blue trousers
+
+shirt:
+  id: 2
+  description: Blue striped shirt
