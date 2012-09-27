@@ -1,0 +1,14 @@
+one: 
+  id: 1
+  description_id: 1
+  sold: false
+
+two: 
+  id: 2
+  description_id: 2
+  sold: false
+
+three:
+  id: 3
+  description_id: 2
+  sold: true
