@@ -1,5 +1,5 @@
 class GarmentDescription < ActiveRecord::Base
   attr_accessible :description
 
-  validates :description, :presence => true
+  validates_presence_of :description
 end
