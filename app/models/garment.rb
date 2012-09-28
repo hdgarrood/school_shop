@@ -1,6 +1,9 @@
 class Garment < ActiveRecord::Base
-  attr_accessible :description, :sold
+  attr_accessible :sold_at
 
-  validates_presence_of :description
-  validates_presence_of :sold
+  belongs_to :garment_description
+
+  def sold?
+    !sold_at.nil?
+  end
 end
