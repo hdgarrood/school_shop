@@ -1,0 +1,14 @@
+Sellers
+
+ID
+First name
+Surname
+
+Sellers_children
+
+ID
+Seller_id
+child_name
+
+Assume first name, surname, son's name uniquely identifies a seller.
+
