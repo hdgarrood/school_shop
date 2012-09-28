@@ -1,0 +1,54 @@
+change prices while clothes are waiting to be sold
+reprint labels when prices change?
+
+Garments In:
+-----------
+
+Enter details into form
+Show/export label data
+Print label (or print later, in batch)
+
+Garments Out:
+------------
+
+Find garment by ID
+Prompt to check sale price
+
+Export Sales:
+-------------
+
+Specify a time period
+Produce a CSV (or XLS?) with seller, full sales amount, amount they are owed
+    Ensure that a particular item under £5 doesn't return anything to seller
+    Human-readable (possibly computer-readable later)
+
+Or even allow the previous user of this to access the web app instead?
+
+eg:
+
+Sales in Apr 2013
+-----------------
+Seller                                  Sold    Owed
+=====================================================
+Claire Garrood (Max)                    17.50   8.75
+G Green (Edward, George)                20.00   10.00
+
+
+Queries:
+--------
+
+- Any clothes of a particular size and description?
+- What's been hanging around for a long time?
+- Which type sells the most?
+- How much unsold of each type?
+
+Garment Sizes:
+--------------
+
+Need to convert between inches, cm, years.
+Come up with normalised format for store in DB
+    Bear in mind some are 8-10yr
+    Store lower and upper for ranges
+    Also chest, height, waist, collar
+Customizable display format
+Type depends on one of chest, height, waist, collar
