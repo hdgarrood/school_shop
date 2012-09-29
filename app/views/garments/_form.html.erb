@@ -1,5 +1,18 @@
 <%= form_for(@garment) do |f| %>
-  <strong>Type</strong>
-  <%= f.select "garment_type_id",
-               options_from_collection_for_select(@garment_types, "id", "name") %>
+  <div class='field'>
+    <strong>Type</strong>
+    <%= f.select "garment_type_id", options_from_collection_for_select(@garment_types, "id", "name") %>
+  </div>
+  <div class='field'>
+    <strong>Size</strong>
+    <%= f.text_field "size_lbound", :size => 3 %>
+
+    <span id='garment_form_upper_bound'>
+      - <%= f.text_field "size_ubound", :size => 3 %>
+    </span>
+
+    <%= f.select "size_type",
+      options_for_select([['years', 'years'], ['inches', 'inches'], ['cm', 'cm']]) %>
+  </div>
+  <%= f.submit %>
 <% end %>
