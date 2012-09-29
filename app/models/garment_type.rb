@@ -1,7 +1,5 @@
 class GarmentType < ActiveRecord::Base
-  attr_accessible :type
-
-  validates_presence_of :type
-
+  attr_accessible :name
+  validates_presence_of :name
   has_many :garments
 end
