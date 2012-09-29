@@ -4,5 +4,6 @@ class GarmentsController < ApplicationController
 
   def new
     @garment = Garment.new
+    @garment_types = GarmentType.all
   end
 end
