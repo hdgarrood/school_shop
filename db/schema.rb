@@ -11,19 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928073831) do
+ActiveRecord::Schema.define(:version => 20120929205044) do
 
-  create_table "garment_descriptions", :force => true do |t|
-    t.string "description"
+  create_table "garment_types", :force => true do |t|
+    t.string "type"
   end
 
   create_table "garments", :force => true do |t|
-    t.integer  "garment_description_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.integer  "garment_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.datetime "sold_at"
   end
 
-  add_index "garments", ["garment_description_id"], :name => "index_garments_on_garment_description_id"
+  add_index "garments", ["garment_type_id"], :name => "index_garments_on_garment_type_id"
 
 end
