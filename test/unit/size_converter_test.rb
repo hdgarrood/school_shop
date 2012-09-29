@@ -22,5 +22,7 @@ class SizeConverterTest < ActiveSupport::TestCase
   end
 
   def test_interpolates
+    result = @sc.chest_cm_to_years(84)
+    assert_equal(13.5, result)
   end
 end
