@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929210820) do
+ActiveRecord::Schema.define(:version => 20120929222325) do
 
   create_table "garment_types", :force => true do |t|
     t.string "name"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120929210820) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.datetime "sold_at"
+    t.float    "size_lbound"
+    t.float    "size_ubound"
   end
 
   add_index "garments", ["garment_type_id"], :name => "index_garments_on_garment_type_id"
