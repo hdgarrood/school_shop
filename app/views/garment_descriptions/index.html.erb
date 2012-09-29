@@ -1,9 +1,0 @@
-<h1>Garment descriptions</h1>
-
-<%= link_to "New", new_garment_description_path %>
-
-<% @garment_descriptions.each do |g| %>
-  <p>
-    <%= link_to g.description, g %>
-  </p>
-<% end %>

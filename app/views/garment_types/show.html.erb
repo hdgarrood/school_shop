@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <b>Type:</b>
+  <%= @garment_type.type %>
+</p>
+ 
+<%= link_to 'Edit', edit_garment_type_path(@garment_type) %> |
+<%= link_to 'Delete', @garment_type, :method => :delete, 
+                                            :confirm => 'Are you sure?' %> |
+<%= link_to 'Back', garment_types_path %>

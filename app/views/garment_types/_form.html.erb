@@ -1,0 +1,23 @@
+<%= form_for(@garment_type) do |f| %>
+  <% if @garment_type.errors.any? %>
+  <div id="errorExplanation">
+    <p>
+      <%= pluralize(@garment_type.errors.count, "error") %>
+      prohibited this garment type from being saved:
+    </p>
+    <ul>
+    <% @garment_type.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
