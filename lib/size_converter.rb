@@ -3,7 +3,13 @@ require 'match_method_macros'
 class SizeConverter
   extend MatchMethodMacros
 
-  #private
+  # defines all the methods years_to_height_cm, waist_cm_to_height_inches, etc
+  match_method /\A#{any_unit}_to_#{any_unit}$/ do |name, value|
+    unit_from, unit_to = split_units(name)
+    convert_x_to_y(unit_from, unit_to, value)
+  end
+
+  private
   def conversion_chart
     {
       :years => [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
@@ -18,17 +24,24 @@ class SizeConverter
     }
   end
 
-  # TODO: interpolation
   def convert_x_to_y(unit_from, unit_to, value)
     # get lists of values for both units in question
     values_from = conversion_chart[unit_from.to_sym]
     values_to = conversion_chart[unit_to.to_sym]
 
-    # actually do the conversion here
+    # are we in range?
     if value >= values_from.first && value <= values_from.last
       index_from = values_from.index { |elem| elem >= value }
-      values_to[index_from]
+      # do we need to interpolate?
+      if value == values_from[index_from]
+        values_to[index_from]
+      else
+        interpolation_ratio = (value - values_from[index_from]) / (values_from[index_from+1] - values_from[index_from])
+        difference_to = values_to[index_from+1] - values_to[index_from]
+        (ratio * difference_to) + values_to[index_from]
+      end
     else
+      # return nil if out of range
       nil
     end
   end
@@ -47,12 +60,5 @@ class SizeConverter
   # regex for matching a conversion unit
   def self.any_unit
     "(#{new.conversion_chart.keys.map{|a|a.to_s}.join("|")})"
-  end
-
-  public
-  # defines all the methods years_to_height_cm, waist_cm_to_height_inches, etc
-  match_method /\A#{any_unit}_to_#{any_unit}$/ do |name, value|
-    unit_from, unit_to = split_units(name)
-    convert_x_to_y(unit_from, unit_to, value)
   end
 end
