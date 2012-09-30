@@ -1,37 +1,41 @@
 require 'size/size'
 
 class SizeRange
-  attr_reader :lbound, :ubound
+  attr_reader :lbound, :ubound, :unit
 
-  def initialize(lbound, ubound = nil, unit)
-    @lbound = Size.new(lbound, unit)
-    @ubound = ubound ? Size.new(ubound, unit) : @lbound
-  end
-
-  def unit
-    @lbound.unit
+  def initialize(lbound, ubound, unit)
+    @lbound = lbound
+    @ubound = ubound
+    @unit = unit
   end
 
   def convert_to(other_unit)
-    other_lbound = @lbound.convert_to(other_unit).value
-    other_ubound = @ubound.convert_to(other_unit).value
+    other_lbound = Size.convert(@lbound, @unit, other_unit).value
+    other_ubound = Size.convert(@lbound, @unit. other_unit).value
     SizeRange.new(other_lbound, other_ubound, other_unit)
   end
 
   def empty?
-    @lbound.nil? && @ubound.nil?
+    @lbound.nil? && @unit.nil?
+  end
+
+  # convert this SizeRange to a normal size if @ubound is nil
+  # returns nil if 
+  def to_size
+    @ubound ? nil : Size.new(@lbound, @unit)
   end
 
   def to_s
+    # if all attributes are nil, return ""
     return "" if empty?
+    # if no upper bound, behave like a Size
+    return to_size.to_s if @ubound.nil?
 
-    unit_str = unit
-    unit_str.gsub!('inches', '"')
-
+    unit_str = @unit.sub('inches', '"')
     if unit_str.include?('_')
-      "#{@lbound.value}-#{@ubound.value}#{unit_str.split('_')[1]}"
+      "#{@lbound}-#{@ubound}#{unit_str.split('_')[1]}"
     else
-      "#{@lbound.value}-#{@ubound.value} #{unit_str}"
+      "#{@lbound}-#{@ubound} #{unit_str}"
     end
   end
 end
