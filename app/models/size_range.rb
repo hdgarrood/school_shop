@@ -1,5 +1,3 @@
-require 'size/size'
-
 class SizeRange
   attr_reader :lbound, :ubound, :unit
 
