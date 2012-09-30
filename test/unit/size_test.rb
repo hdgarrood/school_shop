@@ -24,6 +24,11 @@ class SizeTest < ActiveSupport::TestCase
   end
 
   def test_comparison
+    # TODO
+  end
 
+  def test_to_s_when_attributes_are_nil
+    s1 = Size.new(nil, nil) 
+    assert_equal("", s1.to_s)
   end
 end
