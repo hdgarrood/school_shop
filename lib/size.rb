@@ -12,4 +12,16 @@ class Size
   def convert_to(other_unit)
     Size.convert(@value, @unit, other_unit)
   end
+
+  def ==(other_size)
+    @value == other_size.value && @unit == other_size.unit
+  end
+
+  def <=>(other_size)
+    if @unit == other_size.unit
+      @value <=> other_size.value
+    else
+      @value <=> other_size.convert_to(@unit)
+    end
+  end
 end
