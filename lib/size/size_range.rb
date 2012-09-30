@@ -13,12 +13,18 @@ class SizeRange
   end
 
   def convert_to(other_unit)
-    other_lbound = @lbound.convert_to(other_unit)
-    other_ubound = @ubound.convert_to(other_unit)
+    other_lbound = @lbound.convert_to(other_unit).value
+    other_ubound = @ubound.convert_to(other_unit).value
     SizeRange.new(other_lbound, other_ubound, other_unit)
   end
 
+  def empty?
+    @lbound.nil? && @ubound.nil?
+  end
+
   def to_s
+    return "" if empty?
+
     unit_str = unit
     unit_str.gsub!('inches', '"')
 
