@@ -24,4 +24,18 @@ class Size
       @value <=> other_size.convert_to(@unit)
     end
   end
+
+  def to_s
+    unit_str = @unit.dup
+    unit_str.gsub!('inches', '"')
+
+    if unit_str.include?('_')
+      # eg height_cm
+      measurement, unit_name = unit_str.split('_')
+      "#{@value}#{unit_name} (#{measurement})"
+    else
+      # unit is probably years
+      "#{@value} #{unit_str}"
+    end
+  end
 end
