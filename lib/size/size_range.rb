@@ -23,10 +23,9 @@ class SizeRange
     unit_str.gsub!('inches', '"')
 
     if unit_str.include?('_')
-      measurement, unit_name = unit_str.split('_')
-      "#{@lbound.value}#{unit_name} - #{@ubound.value}#{unit_name} (#{measurement})"
+      "#{@lbound.value}-#{@ubound.value}#{unit_str.split('_')[1]}"
     else
-      "#{@lbound.value} - #{@ubound.value} #{unit_str}"
+      "#{@lbound.value}-#{@ubound.value} #{unit_str}"
     end
   end
 end
