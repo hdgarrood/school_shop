@@ -65,7 +65,7 @@ class Size
     if @unit == other_size.unit
       @value <=> other_size.value
     else
-      @value <=> other_size.convert_to(@unit)
+      @value <=> other_size.convert_to(@unit).value
     end
   end
 
