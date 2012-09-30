@@ -1,4 +1,7 @@
 class GarmentTypesController < ApplicationController
+  before_filter :find_garment_type_from_params,
+                :only => [:show, :edit, :update, :delete]
+
   def index
     @garment_types = GarmentType.all
   end
@@ -19,16 +22,12 @@ class GarmentTypesController < ApplicationController
   end
 
   def show
-    @garment_type = GarmentType.find(params[:id])
   end
 
   def edit
-    @garment_type = GarmentType.find(params[:id])
   end
 
   def update
-    @garment_type = GarmentType.find(params[:id])
-
     if @garment_type.update_attributes(params[:garment_type])
       redirect_to(@garment_type,
                  :notice => 'Garment type was successfully updated.')
@@ -38,8 +37,12 @@ class GarmentTypesController < ApplicationController
   end
 
   def destroy
-    @garment_type = GarmentType.find(params[:id])
     @garment_type.destroy
     redirect_to garment_types_url
+  end
+  
+  protected
+  def find_garment_type_from_params
+    @garment_type = GarmentType.find(params[:id])
   end
 end
