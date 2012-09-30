@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930120808) do
+ActiveRecord::Schema.define(:version => 20120930123039) do
 
   create_table "garment_types", :force => true do |t|
     t.string "name"
     t.string "measured_by"
   end
+
+  add_index "garment_types", ["name"], :name => "index_garment_types_on_name", :unique => true
 
   create_table "garments", :force => true do |t|
     t.integer  "garment_type_id"
