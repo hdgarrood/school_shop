@@ -16,3 +16,4 @@
 
 # ignore Gemfile.lock
 Gemfile.lock
+/coverage
