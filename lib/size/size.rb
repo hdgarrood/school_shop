@@ -25,7 +25,13 @@ class Size
     end
   end
 
+  def empty?
+    @value.nil? && @unit.nil?
+  end
+
   def to_s
+    return "" if empty?
+
     unit_str = @unit.dup
     unit_str.gsub!('inches', '"')
 
