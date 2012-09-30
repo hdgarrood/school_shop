@@ -1,4 +1,4 @@
-require 'size'
+require 'size/size'
 
 class SizeRange
   attr_reader :lbound, :ubound
