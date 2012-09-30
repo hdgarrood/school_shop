@@ -30,9 +30,7 @@ class Size
     unit_str.gsub!('inches', '"')
 
     if unit_str.include?('_')
-      # eg height_cm
-      measurement, unit_name = unit_str.split('_')
-      "#{@value}#{unit_name} (#{measurement})"
+      "#{@value}#{unit_str.split('_')[1]}"
     else
       # unit is probably years
       "#{@value} #{unit_str}"
