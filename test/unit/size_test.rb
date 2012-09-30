@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'size'
 
 class SizeTest < ActiveSupport::TestCase
   def test_can_read_attributes
