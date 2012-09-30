@@ -1,7 +1,8 @@
-require 'match_method_macros'
-
 module SizeConverter
-  extend MatchMethodMacros
+  def convert(value, unit_from, unit_to)
+    value_to = convert_value(value, unit_from, unit_to)
+    value_to ? Size.new(value_to, unit_to) : nil
+  end
 
   private
   CONVERSION_CHART = {
@@ -36,11 +37,5 @@ module SizeConverter
       # return nil if out of range
       nil
     end
-  end
-
-  public
-  def convert(value, unit_from, unit_to)
-    value_to = convert_value(value, unit_from, unit_to)
-    value_to ? Size.new(value_to, unit_to) : nil
   end
 end
