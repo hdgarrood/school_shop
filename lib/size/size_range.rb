@@ -19,11 +19,14 @@ class SizeRange
   end
 
   def to_s
-    if unit.include?('_')
-      measurement, unit_name = unit.split('_')
+    unit_str = unit
+    unit_str.gsub!('inches', '"')
+
+    if unit_str.include?('_')
+      measurement, unit_name = unit_str.split('_')
       "#{@lbound.value}#{unit_name} - #{@ubound.value}#{unit_name} (#{measurement})"
     else
-      "#{@lbound.value} - #{@ubound.value} #{unit}"
+      "#{@lbound.value} - #{@ubound.value} #{unit_str}"
     end
   end
 end
