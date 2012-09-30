@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'size'
 
 class SizeConverterTest < ActiveSupport::TestCase
   def test_converting_years_to_height_cm
