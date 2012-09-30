@@ -61,4 +61,11 @@ class SizeRangeTest < ActiveSupport::TestCase
     sr = SizeRange.new(5, 6, 'years')
     assert_equal('5-6 years', sr.to_s)
   end
+
+  def test_construction_from_hash
+    sr1 = SizeRange.new(5, 6, 'years')
+    sr2 = SizeRange.new(:lbound => 5, :ubound => 6, :unit => 'years')
+
+    assert_equal(sr1, sr2)
+  end
 end
