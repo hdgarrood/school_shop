@@ -1,4 +1,7 @@
 class GarmentsController < ApplicationController
+  before_filter :find_garment,
+                :only => [:show, :update, :destroy, :edit]
+
   def index
   end
 
@@ -15,5 +18,13 @@ class GarmentsController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def show
+  end
+
+  private
+  def find_garment
+    @garment = Garment.find(params[:id])
   end
 end
