@@ -1,3 +1,5 @@
+require 'rounding'
+
 class Size
   extend SizeConverter
   attr_reader :lbound, :ubound, :unit
@@ -40,14 +42,39 @@ class Size
     return "" if empty?
 
     unit_str = @unit.sub('inches', '"')
+    lbound_str, ubound_str = bounds_to_strings
+
     if unit_str.include?('_')
-      has_range? ?
-        "#{@lbound}-#{@ubound}#{unit_str.split('_')[1]}" :
-        "#{@lbound}#{unit_str.split('_')[1]}"
+      lbound_str == ubound_str ?
+        "#{lbound_str}#{unit_str.split('_')[1]}" :
+        "#{lbound_str}-#{ubound_str}#{unit_str.split('_')[1]}"
     else
-      has_range? ?
-        "#{@lbound}-#{@ubound} #{unit_str}" :
-        "#{@lbound} #{unit_str}"
+      lbound_str == ubound_str ?
+        "#{lbound_str} #{unit_str}" :
+        "#{lbound_str}-#{ubound_str} #{unit_str}"
+    end
+  end
+
+  private
+  # how to round values for display?
+  ROUND_MODES = {
+    :to_nearest_quarter => %w(waist_inches height_inches collar_inches chest_inches),
+    :to_nearest_half => %w(waist_cm),
+  }
+
+  # converts lbound and ubound to strings for display
+  # rounds depending on unit
+  def bounds_to_strings
+    rounder = Object.new.extend(Rounding)
+
+    [@lbound, @ubound].map do |bound|
+      if ROUND_MODES[:to_nearest_quarter].include?(@unit)
+        rounder.round_to_nearest_quarter(bound)
+      elsif ROUND_MODES[:to_nearest_half].include?(@unit)
+        rounder.round_to_nearest_half(bound)
+      else
+        rounder.round(bound)
+      end
     end
   end
 end
