@@ -8,9 +8,7 @@ class SizeRange
   end
 
   def initialize(lbound, ubound, unit)
-    @lbound = lbound
-    @ubound = ubound
-    @unit = unit
+    @lbound, @ubound, @unit = lbound, ubound, unit
   end
 
   def convert_to(other_unit)
