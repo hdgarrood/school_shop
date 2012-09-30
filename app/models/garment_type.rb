@@ -3,4 +3,8 @@ class GarmentType < ActiveRecord::Base
   validates_presence_of :name
   validates :measured_by, :inclusion => { :in => %w(height waist chest collar) }
   has_many :garments
+
+  def to_s
+    name
+  end
 end
