@@ -5,7 +5,11 @@ class Size
   include Comparable
   attr_reader :value, :unit
 
-  def initialize(value, unit = "inches")
+  def initialize(value, unit)
     @value, @unit = value, unit
+  end
+
+  def convert_to(other_unit)
+    Size.convert(@value, @unit, other_unit)
   end
 end
