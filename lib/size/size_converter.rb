@@ -29,13 +29,17 @@ module SizeConverter
       if value == values_from[index_from]
         values_to[index_from]
       else
-        ratio = (value - values_from[index_from]).to_f / (values_from[index_from+1] - values_from[index_from])
-        difference = values_to[index_from+1] - values_to[index_from]
-        (ratio * difference) + values_to[index_from]
+        interpolate(value, index_from, values_from, values_to)
       end
     else
       # return nil if out of range
       nil
     end
+  end
+
+  def interpolate(value, index_from, values_from, values_to)
+    ratio = (value - values_from[index_from]).to_f / (values_from[index_from+1] - values_from[index_from])
+    difference = values_to[index_from+1] - values_to[index_from]
+    (ratio * difference) + values_to[index_from]
   end
 end
