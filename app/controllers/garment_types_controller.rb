@@ -1,6 +1,6 @@
 class GarmentTypesController < ApplicationController
   before_filter :find_garment_type_from_params,
-                :only => [:show, :edit, :update, :delete]
+                :only => [:show, :edit, :update, :destroy]
 
   def index
     @garment_types = GarmentType.all
