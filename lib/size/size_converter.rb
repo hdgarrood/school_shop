@@ -16,8 +16,7 @@ module SizeConverter
     "collar_inches" => [11, 11, 11, 11.5, 11.75, 11.75, 12.25, 12.5, 13, 13.5, 14.25, 14.5, 15, 15.75]
   }
 
-  public
-  def convert(value, unit_from, unit_to)
+  def convert_value(value, unit_from, unit_to)
     # get lists of values for both units in question
     values_from = CONVERSION_CHART[unit_from]
     values_to = CONVERSION_CHART[unit_to]
@@ -37,5 +36,11 @@ module SizeConverter
       # return nil if out of range
       nil
     end
+  end
+
+  public
+  def convert(value, unit_from, unit_to)
+    value_to = convert_value(value, unit_from, unit_to)
+    value_to ? Size.new(value_to, unit_to) : nil
   end
 end
