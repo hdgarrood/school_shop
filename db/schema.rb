@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930123039) do
+ActiveRecord::Schema.define(:version => 20120930135234) do
 
   create_table "garment_types", :force => true do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120930123039) do
     t.datetime "sold_at"
     t.float    "size_lbound"
     t.float    "size_ubound"
+    t.string   "size_unit"
   end
 
   add_index "garments", ["garment_type_id"], :name => "index_garments_on_garment_type_id"
