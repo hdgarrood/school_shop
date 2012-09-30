@@ -1,11 +1,15 @@
 class Garment < ActiveRecord::Base
-  attr_accessible :sold_at, :garment_type_id, :size_range
+  attr_accessible :sold_at,
+                  :garment_type_id,
+                  :size_range
+
   belongs_to :garment_type
 
   composed_of :size_range,
               :mapping => [%w(size_lbound lbound),
                            %w(size_ubound ubound),
-                           %w(size_unit unit)]
+                           %w(size_unit unit)],
+              :converter => Proc.new { |params| SizeRange.new(params) }
 
   def sold?
     !sold_at.nil?
