@@ -15,8 +15,12 @@ class SizeRange
 
   def convert_to(other_unit)
     other_lbound = Size.convert(@lbound, @unit, other_unit).value
-    other_ubound = Size.convert(@lbound, @unit. other_unit).value
+    other_ubound = Size.convert(@ubound, @unit, other_unit).value
     SizeRange.new(other_lbound, other_ubound, other_unit)
+  end
+
+  def ==(other)
+    @lbound == other.lbound && @ubound == other.ubound && @unit == other.unit
   end
 
   def empty?
