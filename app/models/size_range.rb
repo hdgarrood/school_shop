@@ -7,8 +7,13 @@ class SizeRange
     end
   end
 
-  def initialize(lbound, ubound, unit)
-    @lbound, @ubound, @unit = lbound, ubound, unit
+  def initialize(*args)
+    if args.length == 1 and args[0].is_a?(Hash)
+      h = args[0]
+      @lbound, @ubound, @unit = h[:lbound], h[:ubound], h[:unit]
+    else
+      @lbound, @ubound, @unit = lbound, ubound, unit
+    end
   end
 
   def convert_to(other_unit)
