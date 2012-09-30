@@ -47,4 +47,19 @@ class SizeTest < ActiveSupport::TestCase
     s1 = Size.new(nil, nil) 
     assert_equal("", s1.to_s)
   end
+
+  def test_to_s_with_inches
+    s = Size.new(34, 'waist_inches')
+    assert_equal('34"', s.to_s)
+  end
+
+  def test_to_s_with_years
+    s = Size.new(8, 'years')
+    assert_equal('8 years', s.to_s)
+  end
+
+  def test_to_s_with_cm
+    s = Size.new(98, 'height_cm')
+    assert_equal('98cm', s.to_s)
+  end
 end
