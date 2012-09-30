@@ -1,8 +1,9 @@
+<h2>Garment type: <%= @garment_type.name %></h2
 <p id="notice"><%= notice %></p>
  
 <p>
-  <b>Type:</b>
-  <%= @garment_type.name %>
+  <b>Measured by</b>
+  <%= @garment_type.measured_by.capitalize %>
 </p>
  
 <%= link_to 'Edit', edit_garment_type_path(@garment_type) %> |

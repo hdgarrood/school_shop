@@ -14,9 +14,14 @@
   <% end %>
  
   <div class="field">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :measured_by %>
+    <%= f.select :measured_by, %w(height waist chest collar).map{|a| [a.capitalize,a]} %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
