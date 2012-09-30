@@ -14,4 +14,12 @@ class Garment < ActiveRecord::Base
   def sold?
     !sold_at.nil?
   end
+
+  # returns a size in, say, height_cm as opposed to cm so that it can be
+  # converted between years, height_inches, etc.
+  def convertable_size
+    convertable_unit = size.unit == 'years' ?
+      'years' : "#{garment_type.measured_by}_#{size.unit}"
+    Size.new(size.lbound, size.ubound, convertable_unit)
+  end
 end
