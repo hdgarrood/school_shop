@@ -1,7 +1,9 @@
 trousers:
   id: 1
   name: Navy blue trousers
+  measured_by: waist
 
 shirt:
   id: 2
   name: Blue striped shirt
+  measured_by: height
