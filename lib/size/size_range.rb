@@ -3,6 +3,12 @@ require 'size/size'
 class SizeRange
   attr_reader :lbound, :ubound, :unit
 
+  class << self
+    def from_size(size)
+      new(size.value, size.value, size.unit)
+    end
+  end
+
   def initialize(lbound, ubound, unit)
     @lbound = lbound
     @ubound = ubound
@@ -16,20 +22,25 @@ class SizeRange
   end
 
   def empty?
-    @lbound.nil? && @unit.nil?
+    @lbound.nil? && @ubound.nil? && @unit.nil?
   end
 
-  # convert this SizeRange to a normal size if @ubound is nil
-  # returns nil if 
+  # returns true if this SizeRange's range is greater than 0. If this
+  # returns false, we can treat this SizeRange object like a Size.
+  def has_range?
+    @lbound != @ubound
+  end
+
+  # convert this SizeRange to a normal size if @ubound == @lbound
+  # returns nil if can't convert to size
   def to_size
-    @ubound ? nil : Size.new(@lbound, @unit)
+    has_range? ? nil : Size.new(@lbound, @unit)
   end
 
   def to_s
     # if all attributes are nil, return ""
     return "" if empty?
-    # if no upper bound, behave like a Size
-    return to_size.to_s if @ubound.nil?
+    return to_size.to_s unless has_range?
 
     unit_str = @unit.sub('inches', '"')
     if unit_str.include?('_')
