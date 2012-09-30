@@ -1,42 +1,53 @@
 class Size
-  include Comparable
-  attr_reader :value, :unit
+  extend SizeConverter
+  attr_reader :lbound, :ubound, :unit
 
-  def initialize(value, unit)
-    @value, @unit = value, unit
+  def initialize(*args)
+    if args.length == 1 && args[0].is_a?(Hash)
+      arglist = args[0][:lbound], args[0][:ubound], args[0][:unit]
+    else
+      arglist = args
+    end
+    @lbound, @ubound, @unit = arglist
   end
 
   def convert_to(other_unit)
-    Size.convert(@value, @unit, other_unit)
+    other_lbound = Size.convert(@lbound, @unit, other_unit)
+    other_ubound = Size.convert(@ubound, @unit, other_unit)
+    Size.new(other_lbound, other_ubound, other_unit)
   end
 
-  def ==(other_size)
-    @value == other_size.value && @unit == other_size.unit
-  end
-
-  def <=>(other_size)
-    if @unit == other_size.unit
-      @value <=> other_size.value
+  def ==(other)
+    if @unit == other.unit
+      @lbound == other.lbound && @ubound == other.ubound
+    elsif (converted = other.convert_to(@unit))
+      @lbound == converted.lbound && @ubound == converted.ubound
     else
-      @value <=> other_size.convert_to(@unit).value
+      nil
     end
   end
 
   def empty?
-    @value.nil? && @unit.nil?
+    @lbound.nil? && @ubound.nil? && @unit.nil?
+  end
+
+  def has_range?
+    @lbound != @ubound
   end
 
   def to_s
+    # if all attributes are nil, return ""
     return "" if empty?
 
-    unit_str = @unit.dup
-    unit_str.gsub!('inches', '"')
-
+    unit_str = @unit.sub('inches', '"')
     if unit_str.include?('_')
-      "#{@value}#{unit_str.split('_')[1]}"
+      has_range? ?
+        "#{@lbound}-#{@ubound}#{unit_str.split('_')[1]}" :
+        "#{@lbound}#{unit_str.split('_')[1]}"
     else
-      # unit is probably years
-      "#{@value} #{unit_str}"
+      has_range? ?
+        "#{@lbound}-#{@ubound} #{unit_str}" :
+        "#{@lbound} #{unit_str}"
     end
   end
 end
