@@ -3,6 +3,7 @@
 class ConvertableSize < Size
   extend SizeConverter
   has_fields :measurement
+  validates :measurement, :inclusion => { :in => %w(height weight chest collar) }
 
   def convert_to(new_measurement)
     new_lbound = convert_bound(@lbound)
