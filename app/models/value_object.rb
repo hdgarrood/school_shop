@@ -12,19 +12,14 @@
 #
 #   Allow #empty? to work, by checking that each field is nil, and
 #   returning true if so, or false otherwise.
-#
-# Note that it is possible to call has_fields twice; the fields will
-# simply be added on to the end of the existing ones.
 class ValueObject
-  class << self
-    attr_reader :fields
+  class_attribute :fields
+  self.fields = []
 
-    def has_fields(*fields)
-      @fields ||= []
-      fields.each do |f| 
-        attr_reader f
-        @fields << f
-      end
+  class << self
+    def has_fields(*args)
+      attr_reader *args
+      self.fields += args
     end
   end
 
