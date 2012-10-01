@@ -6,7 +6,6 @@ class Garment < ActiveRecord::Base
   belongs_to :garment_type
 
   composed_of :_size,
-              :class_name => 'Size',
               :mapping => [%w(size_lbound lbound),
                            %w(size_ubound ubound),
                            %w(size_unit unit)],
