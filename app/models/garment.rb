@@ -37,7 +37,7 @@ class Garment < ActiveRecord::Base
   # 'public' size writer -- removes measured_by info from the unit if present
   # so that it does the inverse of the reader.
   def size=(new_size)
-    new_unit = new_size.unit.gsub(/(waist|height|chest|collar)/, '')
+    new_unit = new_size.unit.gsub(/(waist|height|chest|collar)_/, '')
     _size = Size.new(new_size.lbound, new_size.ubound, new_unit)
   end
 end
