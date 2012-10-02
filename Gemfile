@@ -13,6 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'value_object', '>= 0.1.1'
 
 group :development do
   gem 'simplecov'
