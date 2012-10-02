@@ -1,6 +1,6 @@
 require 'school_shop/rounding'
 
-class Size < ValueObject
+class Size < ValueObject::Base
   include ActiveModel::Validations
 
   has_fields :lbound, :ubound, :unit
@@ -14,5 +14,4 @@ class Size < ValueObject
   def has_range?
     @lbound < @ubound
   end
-
 end
