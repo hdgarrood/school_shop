@@ -3,8 +3,8 @@ module SizeConverter
   # of the values isn't in the conversion chart, or if the value is out
   # of range.
   def convert(value, unit_from, unit_to, measurement)
-    return nil unless convertable?(unit_from, measurement) &&
-                      convertable?(unit_to, measurement)
+    return nil unless convertable?(measurement, unit_from) &&
+                      convertable?(measurement, unit_to)
 
     # get lists of values for both units in question
     values_from = CONVERSION_CHART[measurement][unit_from]
@@ -52,8 +52,8 @@ module SizeConverter
     }
   }
 
-  def convertable?(unit, measurement)
-    CONVERSION_CHART.keys.include?(unit) && CONVERSION_CHART[unit].keys.include?(measurement)
+  def convertable?(measurement, unit)
+    CONVERSION_CHART.keys.include?(measurement) && CONVERSION_CHART[measurement].keys.include?(unit)
   end
 
   def interpolate(value, index_from, values_from, values_to)
