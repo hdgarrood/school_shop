@@ -4,6 +4,10 @@ class ConvertableSize < Size
   extend SizeConverter
   has_fields :measurement
 
+  def self.measurement_values
+    %w(height chest waist collar)
+  end
+
   def convert_to(new_unit)
     new_lbound = convert_bound(@lbound, new_unit)
     new_ubound = convert_bound(@ubound, new_unit)
