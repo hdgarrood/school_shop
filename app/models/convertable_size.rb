@@ -24,7 +24,7 @@ class ConvertableSize < Size
 
     lbound_str == ubound_str ?
       "#{lbound_str}#{space_or_empty}#{unit_str}" :
-      "#{lbound_str}#{ubound_str}#{space_or_empty}#{unit_str}"
+      "#{lbound_str}-#{ubound_str}#{space_or_empty}#{unit_str}"
   end
 
   private
