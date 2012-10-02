@@ -3,7 +3,6 @@
 class ConvertableSize < Size
   extend SizeConverter
   has_fields :measurement
-  validates :measurement, :inclusion => { :in => %w(height weight chest collar) }
 
   def convert_to(new_unit)
     new_lbound = convert_bound(@lbound, new_unit)
@@ -51,7 +50,7 @@ class ConvertableSize < Size
   # converts lbound and ubound to strings for display
   # rounds depending on unit
   def bounds_to_strings
-    rounder = Object.new.extend(SchoolShop::Rounding)
+    rounder = Object.new.extend(Rounding)
 
     [@lbound, @ubound].map do |bound|
       case rounding_mode

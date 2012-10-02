@@ -10,5 +10,4 @@ class SizeTest < ActiveSupport::TestCase
     sr1 = Size.new(110, 110, 'cm')
     assert(!sr1.has_range?, "the size should not have a range")
   end
-
 end
