@@ -15,7 +15,7 @@ class Garment < ActiveRecord::Base
   validates_presence_of :size
   validates :size_lbound, :numericality => { :less_than_or_equal_to => :size_ubound }
   validates :size_ubound, :numericality => :true
-  validates :size_unit, :inclusion => { :in => Size::UNIT_VALUES }
+  validates :size_unit, :inclusion => { :in => Size.unit_values }
 
   def sold?
     !sold_at.nil?
