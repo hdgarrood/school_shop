@@ -11,7 +11,7 @@ class ConvertableSize < Size
   def convert_to(new_unit)
     new_lbound = convert_bound(@lbound, new_unit)
     new_ubound = convert_bound(@ubound, new_unit)
-    ConvertableSize.new(new_lbound, new_ubound, @unit, new_unit)
+    ConvertableSize.new(new_lbound, new_ubound, new_unit, @measurement)
   end
 
   def to_size
@@ -32,7 +32,7 @@ class ConvertableSize < Size
 
   private
   def convert_bound(bound, new_unit)
-    ConvertableSize.convert(bound, @measurement, @unit, new_unit)
+    ConvertableSize.convert(bound, @unit, new_unit, @measurement)
   end
 
   # returns a space or an empty string, depending on attributes
@@ -56,7 +56,7 @@ class ConvertableSize < Size
   def bounds_to_strings
     rounder = Object.new.extend(Rounding)
 
-    [@lbound, @ubound].map do |bound|
+    [lbound, ubound].map do |bound|
       case rounding_mode
       when :to_nearest_quarter
         rounder.round_to_nearest_quarter(bound)
