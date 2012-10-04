@@ -25,6 +25,10 @@ module SizeConverter
     end
   end
 
+  def normalize(value, unit, measurement)
+    convert(value, unit, 'normalized', measurement)
+  end
+
   private
   YEARS_ARRAY = (3..16).to_a
   NORMALIZED_ARRAY = Array.new(YEARS_ARRAY.size) { |i| 10*i }
