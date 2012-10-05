@@ -11,23 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003225010) do
+ActiveRecord::Schema.define(:version => 20121005190920) do
 
   create_table "garment_types", :force => true do |t|
     t.string "name"
-    t.string "measured_by"
   end
 
   add_index "garment_types", ["name"], :name => "index_garment_types_on_name", :unique => true
 
   create_table "garments", :force => true do |t|
     t.integer  "garment_type_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.datetime "sold_at"
-    t.string   "size_unit"
-    t.integer  "size_upper_bound"
-    t.integer  "size_lower_bound"
   end
 
   add_index "garments", ["garment_type_id"], :name => "index_garments_on_garment_type_id"
