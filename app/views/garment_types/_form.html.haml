@@ -1,0 +1,7 @@
+= form_for(@garment_type) do |f|
+  = render 'shared/error_messages', :target => @garment_type
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit t(:submit)
