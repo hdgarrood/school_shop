@@ -8,4 +8,8 @@ class Garment < ActiveRecord::Base
   def sold?
     !sold_at.nil?
   end
+
+  def to_s
+    "#{self.class.model_name.human} ##{id}"
+  end
 end
