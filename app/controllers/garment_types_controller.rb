@@ -30,7 +30,7 @@ class GarmentTypesController < ApplicationController
   def update
     if @garment_type.update_attributes(params[:garment_type])
       flash[:notice] = "Garment type saved successfully."
-      redirect_to @garment_type,
+      redirect_to @garment_type
     else
       render :action => 'edit'
     end 
