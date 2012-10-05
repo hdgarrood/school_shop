@@ -10,3 +10,5 @@ en:
 
   garment_type: "Garment type"
   new_garment_type: "New garment type"
+
+  there_are_currently_n_garments: "There are currently %{count} garments in the database."
