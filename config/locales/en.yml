@@ -4,3 +4,11 @@
 en:
   notice_successful_create: "%{model} was created successfully."
   notice_successful_update: "%{model} was updated successfully."
+
+  edit: "Edit"
+  delete: "Delete"
+  submit: "Submit"
+  are_you_sure?: "Are you sure?"
+  cancel: "Cancel"
+
+  garment_type: "Garment type"

@@ -1,0 +1,5 @@
+.contextual
+  = link_to t(:edit), edit_garment_type_path(@garment_type)
+  |
+  = link_to t(:delete), @garment_type, :method => :delete,
+                                       :confirm => t(:are_you_sure?)

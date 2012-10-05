@@ -15,6 +15,7 @@ end
 gem 'jquery-rails'
 gem 'value_object', '>= 0.1.1'
 gem 'haml'
+gem 'css-bootstrap-rails'
 
 group :development do
   gem 'simplecov'
