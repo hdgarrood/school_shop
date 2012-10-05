@@ -1,6 +1,7 @@
 en:
   notice_successful_create: "%{model} was created successfully."
   notice_successful_update: "%{model} was updated successfully."
+  notice_successful_sale:   "%{model} was sold successfully."
 
   edit: "Edit"
   delete: "Delete"
@@ -12,3 +13,5 @@ en:
   new_garment_type: "New garment type"
 
   there_are_currently_n_garments: "There are currently %{count} garments in the database."
+
+  selling_x: "Selling: %{model}"

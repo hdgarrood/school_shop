@@ -1,6 +1,5 @@
 class Garment < ActiveRecord::Base
-  attr_accessible :sold_at,
-                  :garment_type_id,
+  attr_accessible :garment_type_id,
                   :price
 
   belongs_to :garment_type

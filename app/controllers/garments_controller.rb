@@ -1,6 +1,6 @@
 class GarmentsController < ApplicationController
   before_filter :find_garment,
-                :only => [:show, :update, :destroy, :edit]
+                :only => [:show, :update, :destroy, :edit, :sell]
 
   before_filter :find_garment_types,
                 :only => [:new, :create]
@@ -23,6 +23,19 @@ class GarmentsController < ApplicationController
   end
 
   def show
+  end
+
+  def sell
+    if request.put?
+      @garment.price = params[:garment][:price]
+      @garment.sold_at = Time.now
+      if @garment.save
+        flash[:notice] = t(:notice_successful_sale, :model => @garment)
+        redirect_to @garment
+      else
+        render :action => 'sell'
+      end
+    end
   end
 
   private

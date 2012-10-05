@@ -1,0 +1,5 @@
+%h2= t(:selling_x, :model => @garment)
+= form_for(@garment, :url => sell_garment_path(@garment)) do |f|
+  = f.label :price
+  = f.text_field :price
+  = f.submit t(:submit)
