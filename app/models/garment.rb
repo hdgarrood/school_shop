@@ -1,6 +1,6 @@
 class Garment < ActiveRecord::Base
   attr_accessible :sold_at,
-                  :garment_type_id,
+                  :garment_type_id
 
   belongs_to :garment_type
   validates_presence_of :garment_type
