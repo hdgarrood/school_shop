@@ -1,7 +1,0 @@
-<%= form_for(@garment) do |f| %>
-  <div class='field'>
-    <strong>Type</strong>
-    <%= f.select "garment_type_id", options_from_collection_for_select(@garment_types, "id", "name") %>
-  </div>
-  <%= f.submit %>
-<% end %>

@@ -1,0 +1,5 @@
+= form_for(@garment) do |f|
+  .field
+    %strong Type
+    = f.select 'garment_type_id', options_from_collection_for_select(@garment_types, 'id', 'name')
+  = f.submit

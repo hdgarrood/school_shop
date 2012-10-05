@@ -14,6 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'value_object', '>= 0.1.1'
+gem 'haml'
 
 group :development do
   gem 'simplecov'
