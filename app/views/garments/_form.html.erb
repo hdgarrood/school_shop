@@ -3,13 +3,5 @@
     <strong>Type</strong>
     <%= f.select "garment_type_id", options_from_collection_for_select(@garment_types, "id", "name") %>
   </div>
-  <%= f.fields_for :size, @garment.size do |ff| %>
-    <div id="field">
-      <strong><%= ff.label :lbound, "Size" %></strong>
-      <%= ff.text_field :lbound, :size => 3 %> -
-      <%= ff.text_field :ubound, :size => 3 %>
-      <%= ff.select :unit, %w(years inches cm).map { |a| [a, a] } %>
-    </div>
-  <% end %>
   <%= f.submit %>
 <% end %>
