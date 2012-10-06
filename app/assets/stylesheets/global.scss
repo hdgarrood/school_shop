@@ -1,3 +1,19 @@
+@mixin border($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
 .translation_missing {
-    background: #cc3343
+    background: #cc3343;
+    @include border(2px)
+}
+
+time {
+    background: #9dd1e0;
+    @include border(2px)
+}
+
+.clear {
+    clear: both;
 }

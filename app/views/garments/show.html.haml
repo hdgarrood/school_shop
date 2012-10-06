@@ -7,6 +7,6 @@
   = quid(@garment.price)
 %p
   - if @garment.sold?
-    Sold on #{l(@garment.sold_at)}.
+    Sold #{render_datetime(@garment.sold_at)} ago.
   - else
     Not sold yet.

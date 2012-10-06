@@ -1,0 +1,23 @@
+// unordered list nav menu
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+        display: block;
+        a {
+            background: red;
+            width: 9em;
+            float: left;
+            text: {
+                decoration: none;
+                align: center;
+            }
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
+}
