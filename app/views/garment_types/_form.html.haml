@@ -1,7 +1,5 @@
-= form_for(@garment_type) do |f|
+= form_for(@garment_type, :builder => BootstrapFormBuilder, :html => { :class => 'form-horizontal' }) do |f|
   = render 'shared/error_messages', :target => @garment_type
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit t(:submit)
+  = f.bootstrap_field :text_field, :name, :with_label => true
+  .form-actions
+    = f.submit t(:submit), :class => "btn"

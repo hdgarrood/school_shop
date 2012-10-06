@@ -1,3 +1,5 @@
+@import 'mixins';
+
 // unordered list nav menu
 nav ul {
     margin: 0;
@@ -7,8 +9,9 @@ nav ul {
         margin: 0;
         padding: 0;
         display: block;
+        @include border(2px);
         a {
-            background: red;
+            background: #eee;
             width: 9em;
             float: left;
             text: {

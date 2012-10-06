@@ -1,8 +1,4 @@
-@mixin border($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
-}
+@import 'mixins';
 
 .translation_missing {
     background: #cc3343;
@@ -16,4 +12,10 @@ time {
 
 .clear {
     clear: both;
+}
+
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
 }
