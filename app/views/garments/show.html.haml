@@ -5,3 +5,8 @@
 %p
   %strong Price
   = quid(@garment.price)
+%p
+  - if @garment.sold?
+    Sold on #{l(@garment.sold_at)}.
+  - else
+    Not sold yet.
