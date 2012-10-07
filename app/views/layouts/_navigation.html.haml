@@ -1,7 +1,7 @@
 %nav
   %ul.nav.nav-tabs
-    %li= link_to Garment.model_name.human.pluralize, garments_path
-    %li= link_to GarmentType.model_name.human.pluralize, garment_types_path
-    %li= link_to 'Test link', '#'
-    %li= link_to 'Another one', '#'
+    = render_nav_element Garment.model_name.human.pluralize, garments_path, 'garments'
+    = render_nav_element GarmentType.model_name.human.pluralize, garment_types_path, 'garment_types'
+    = render_nav_element 'Test link', '#'
+    = render_nav_element 'Another one', '#'
 .clear
