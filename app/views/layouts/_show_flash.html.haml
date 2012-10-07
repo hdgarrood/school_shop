@@ -1,3 +1,6 @@
+- mappings = { :notice  => 'alert alert-success',
+               :warning => 'alert',
+               :error   => 'alert alert-error' }
 - [:notice, :warning, :error].each do |key|
   - if flash[key]
-    %div{:class => key}= flash[key]
+    %div{:class => mappings[key]}= flash[key]
