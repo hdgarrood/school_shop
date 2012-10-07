@@ -19,9 +19,9 @@ end
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'twitter_bootstrap_form_for',
-  :path => "~/code/twitter_bootstrap_form_for"
-  #:git => 'git://github.com/stouset/twitter_bootstrap_form_for.git',
-  #:branch => 'bootstrap-2.0'
+  #:path => "~/code/twitter_bootstrap_form_for"
+  :git => 'git://github.com/stouset/twitter_bootstrap_form_for.git',
+  :branch => 'bootstrap-2.0'
 gem 'jquery-rails'
 gem 'rails-i18n'
 
