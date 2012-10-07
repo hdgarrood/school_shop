@@ -1,5 +1,7 @@
-= form_for(@garment_type, :builder => BootstrapFormBuilder, :html => { :class => 'form-horizontal' }) do |f|
-  = render 'shared/error_messages', :target => @garment_type
-  = f.bootstrap_field :text_field, :name, :with_label => true
-  .form-actions
-    = f.submit t(:submit), :class => "btn"
+= twitter_bootstrap_form_for(@garment_type, :horizontal => true) do |f| 
+  = f.inputs t('models.garment_type.edit') do
+    = render 'shared/error_messages', :target => @garment_type
+    = f.text_field :name
+    = f.actions do
+      = f.submit t(:submit)
+      = button_tag t(:cancel), :type => 'reset', :class => 'btn'

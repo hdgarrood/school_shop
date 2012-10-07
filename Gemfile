@@ -18,7 +18,7 @@ end
 
 gem 'haml'
 gem 'bootstrap-sass'
-gem 'twitter_bootstrap_form_for'
+gem 'twitter_bootstrap_form_for', :path => "~/code/twitter_bootstrap_form_for"
 gem 'jquery-rails'
 gem 'rails-i18n'
 
