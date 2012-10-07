@@ -33,6 +33,9 @@ class GarmentsController < ApplicationController
         flash[:notice] = t('models.garment.sold', :model => @garment)
         redirect_to @garment
       end
+    elsif request.get? && @garment.sold?
+      flash[:warning] = t('models.garment.already_sold')
+      redirect_to @garment
     end
   end
 

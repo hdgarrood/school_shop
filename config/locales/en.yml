@@ -12,6 +12,7 @@ en:
       updated: "Garment updated successfully."
       selling: "Selling: %{model}"
       sold: "Garment sold successfully."
+      already_sold: "This garment has already been sold!"
       confirm_price: "Confirm price"
       how_many: "There are currently %{count} garments in the database."
 
