@@ -1,6 +1,5 @@
 = twitter_bootstrap_form_for(@garment_type, :horizontal => true) do |f| 
-  = f.inputs t('models.garment_type.edit') do
-    = render 'shared/error_messages', :target => @garment_type
+  = f.fieldset legend do
     = f.text_field :name
     = f.actions do
       = f.submit t(:submit)
