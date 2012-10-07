@@ -13,6 +13,11 @@ en:
       selling: "Selling: %{model}"
       sold: "Garment sold successfully."
       how_many: "There are currently %{count} garments in the database."
+
+  number:
+    currency:
+      format:
+        unit: "&pound;"
   
   edit: "Edit"
   delete: "Delete"
