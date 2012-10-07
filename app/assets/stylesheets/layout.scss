@@ -1,39 +1,9 @@
 @import 'mixins';
 
-// unordered list nav menu
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    li {
-        margin: 0;
-        padding: 0;
-        display: block;
-        @include border(2px);
-        a {
-            background: #eee;
-            width: 9em;
-            float: left;
-            text: {
-                decoration: none;
-                align: center;
-            }
-        }
-        a:hover {
-            text-decoration: none;
-        }
-    }
-}
-
 #container {
     margin-left: auto;
     margin-right: auto;
     width: 800px;
-}
-
-header {
-    margin-top: 15px;
-    background-color: #ddd;
 }
 
 section#main {
