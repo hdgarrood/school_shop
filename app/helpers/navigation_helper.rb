@@ -4,7 +4,7 @@ module NavigationHelper
 
     content_tag(:ul, :class => 'nav nav-tabs') do
       nav_elements.map do |element|
-        is_active = active_nav_element == element[2]
+        is_active = active_element == element[2]
         render_nav_element(*element, is_active)
       end.join.html_safe
     end
