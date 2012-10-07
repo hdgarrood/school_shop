@@ -1,4 +1,6 @@
 %h2= t('models.garment_type.name').pluralize
 %p= link_to t('models.garment_type.new'), new_garment_type_path
-- @garment_types.each do |gt|
-  %p= link_to gt.name, gt
+- @garment_types.in_groups_of(4, false).each do |group|
+  .row
+    - group.each do |gt|
+      .span3.cards= link_to gt.name, gt
