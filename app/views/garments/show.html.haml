@@ -4,7 +4,7 @@
   = @garment.garment_type
 %p
   %strong Price
-  = quid(@garment.price)
+  = number_to_currency(@garment.price)
 %p
   - if @garment.sold?
     Sold #{render_datetime(@garment.sold_at)} ago.

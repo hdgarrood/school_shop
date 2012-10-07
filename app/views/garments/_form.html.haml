@@ -1,9 +1,9 @@
-= twitter_bootstrap_form_for(@garment, :horizontal => true) do |f|
+= twitter_bootstrap_form_for(@garment, :html => { :class => 'form-horizontal' }) do |f|
   = f.fieldset legend do
     = f.select :garment_type_id,
                t('models.garment_type.name'),
                options_from_collection_for_select(@garment_types, 'id', 'name')
-    = f.text_field :price
+    = f.price_field :price, :class => "input-small"
     = f.actions do
       = f.submit t(:submit)
       = button_tag t(:cancel), :type => 'reset', :class => 'btn'
