@@ -1,4 +1,4 @@
-%h2= t(:garment_type).pluralize
+%h2= t('models.garment_type.name').pluralize
 %p= link_to t(:new_garment_type), new_garment_type_path
 - @garment_types.each do |gt|
   %p= link_to gt.name, gt
