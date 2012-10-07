@@ -1,5 +1,8 @@
-%h2= t(:selling_x, :model => @garment)
-= form_for(@garment, :url => sell_garment_path(@garment)) do |f|
-  = f.label :price
-  = f.text_field :price
-  = f.submit t(:submit)
+= twitter_bootstrap_form_for(@garment,
+          :url => sell_garment_path(@garment),
+          :horizontal => true) do |f|
+  = f.fieldset t('models.garment.selling', :model => @garment) do
+    = f.price_field :price, :class => 'input-small'
+    = f.actions do
+      = f.submit t(:submit)
+      = button_tag t(:cancel), :type => 'reset', :class => 'btn'
