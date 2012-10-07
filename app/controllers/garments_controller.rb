@@ -15,7 +15,7 @@ class GarmentsController < ApplicationController
   def create
     @garment = Garment.new(params[:garment])
     if @garment.save
-      flash[:notice] = t(:notice_successful_create, :model => @garment)
+      flash[:notice] = t('models.garment.created', :model => @garment)
       redirect_to @garment
     else
       render :action => 'new'
@@ -30,7 +30,7 @@ class GarmentsController < ApplicationController
       @garment.price = params[:garment][:price]
       @garment.sold_at = Time.now
       if @garment.save
-        flash[:notice] = t(:notice_successful_sale, :model => @garment)
+        flash[:notice] = t('models.garment.sold', :model => @garment)
         redirect_to @garment
       else
         render :action => 'sell'
