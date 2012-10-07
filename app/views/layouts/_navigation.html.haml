@@ -1,5 +1,5 @@
 %nav
   = form_tag search_path, :method => :get, :class => 'form-search' do
-    = text_field_tag :search, t(:search), :class => 'input-medium search-query pull-right'
+    = text_field_tag :search, '', :placeholder => t(:search), :class => 'input-medium search-query pull-right'
   = render_nav_bar
 .clear
