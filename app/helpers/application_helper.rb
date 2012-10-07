@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def quid(amount)
-    number_to_currency(amount, :unit => "&pound;")
-  end
-
   def render_datetime(datetime)
     content_tag(:time,
                 :datetime => datetime.xmlschema,
