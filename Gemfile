@@ -18,6 +18,7 @@ end
 
 gem 'haml'
 gem 'bootstrap-sass'
+gem 'twitter_bootstrap_form_for'
 gem 'jquery-rails'
 gem 'rails-i18n'
 
