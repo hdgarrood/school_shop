@@ -2,6 +2,7 @@ en:
   models:
     garment_type:
       name: "Garment type"
+      short_name: "Type"
       new: "Add a garment type"
       edit: "Edit garment type"
     garment:
