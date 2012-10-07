@@ -3,4 +3,5 @@
 - @garment_types.in_groups_of(4, false).each do |group|
   .row
     - group.each do |gt|
-      .span3.cards= link_to gt.name, gt
+      .span3.cards
+        %p= link_to gt.name, gt
