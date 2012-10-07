@@ -3,7 +3,7 @@ class GarmentTypesController < ApplicationController
                 :only => [:show, :edit, :update, :destroy]
 
   def index
-    @garment_types = GarmentType.all
+    @garment_types = GarmentType.all.sort_by(&:name)
   end
 
   def new
