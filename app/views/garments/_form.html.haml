@@ -1,6 +1,9 @@
-= form_for(@garment) do |f|
-  = render 'shared/error_messages', :target => @garment
-  .field
-    %strong Type
-    = f.select 'garment_type_id', options_from_collection_for_select(@garment_types, 'id', 'name')
-  = f.submit
+= twitter_bootstrap_form_for(@garment, :horizontal => true) do |f|
+  = f.fieldset legend do
+    = f.select :garment_type_id,
+               t('models.garment_type.name'),
+               options_from_collection_for_select(@garment_types, 'id', 'name')
+    = f.text_field :price
+    = f.actions do
+      = f.submit t(:submit)
+      = button_tag t(:cancel), :type => 'reset', :class => 'btn'
