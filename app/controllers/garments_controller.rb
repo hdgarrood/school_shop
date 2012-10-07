@@ -32,8 +32,6 @@ class GarmentsController < ApplicationController
       if @garment.save
         flash[:notice] = t('models.garment.sold', :model => @garment)
         redirect_to @garment
-      else
-        render :action => 'sell'
       end
     end
   end
