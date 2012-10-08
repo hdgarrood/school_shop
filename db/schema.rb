@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005222734) do
+ActiveRecord::Schema.define(:version => 20121008201214) do
 
   create_table "garment_types", :force => true do |t|
     t.string "name"
@@ -25,8 +25,16 @@ ActiveRecord::Schema.define(:version => 20121005222734) do
     t.datetime "updated_at",                                     :null => false
     t.datetime "sold_at"
     t.decimal  "price",           :precision => 16, :scale => 2
+    t.integer  "seller_id"
   end
 
   add_index "garments", ["garment_type_id"], :name => "index_garments_on_garment_type_id"
+  add_index "garments", ["seller_id"], :name => "index_garments_on_seller_id"
+
+  create_table "sellers", :force => true do |t|
+    t.string "full_name"
+    t.string "sons_name"
+    t.string "email"
+  end
 
 end
