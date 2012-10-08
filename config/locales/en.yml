@@ -14,12 +14,15 @@ en:
       edit: "Edit garment"
       created: "Garment created successfully."
       updated: "Garment updated successfully."
-      sell: "Sell"
       selling: "Selling: %{model}"
       sold: "Garment sold successfully."
       already_sold: "This garment has already been sold!"
-      confirm_price: "Confirm price"
       how_many: "There are currently %{count} garments in the database."
+
+  sell: "Sell"
+  sold: "Sold"
+  price: "Price"
+  confirm_price: "Confirm price"
 
   search:
     search: "Search"

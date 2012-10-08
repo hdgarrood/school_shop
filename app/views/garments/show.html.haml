@@ -1,13 +1,14 @@
 %h2= @garment
 %p
-  %strong Type
+  %strong= t('models.garment_type.short_name')
   = @garment.garment_type
 %p
-  %strong Price
+  %strong= t(:price)
   = number_to_currency(@garment.price)
 %p
   - if @garment.sold?
-    Sold #{render_datetime(@garment.sold_at)} ago.
+    %strong= t(:sold)
+    on #{l(@garment.sold_at.to_date, :format => :long)}.
   - else
     = link_to t('models.garment.sell'),
         sell_garment_path(@garment),
