@@ -13,6 +13,6 @@
     %strong= t('models.garment.sold_at')
     = l(@garment.sold_at.to_date, :format => :long)
   - else
-    = link_to t('models.garment.sell'),
+    = link_to t(:sell),
         sell_garment_path(@garment),
         :class => 'btn btn-primary'

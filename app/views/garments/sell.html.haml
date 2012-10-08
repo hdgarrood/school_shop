@@ -2,7 +2,7 @@
           :url => sell_garment_path(@garment),
           :horizontal => true) do |f|
   = f.fieldset t('models.garment.selling', :model => @garment) do
-    = f.price_field :price, t('models.garment.confirm_price'), :class => 'input-small'
+    = f.price_field :price, t(:confirm_price), :class => 'input-small'
     = f.actions do
       = f.submit t(:submit)
       = button_tag t(:cancel), :type => 'reset', :class => 'btn'
