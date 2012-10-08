@@ -9,6 +9,10 @@ section#main {
     margin-top: 15px;
 }
 
+.nav > .active > a:hover {
+    cursor: pointer;
+}
+
 .cards {
     display: block;
     background: $grayLighter;
