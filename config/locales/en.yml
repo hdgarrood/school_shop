@@ -5,6 +5,7 @@ en:
       short_name: "Type"
       new: "Add a garment type"
       edit: "Edit garment type"
+      cannot_delete_with_children: "This garment type cannot be deleted, because there are still some garments of this type."
     garment:
       name: "Garment"
       new: "Add a garment"

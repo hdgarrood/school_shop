@@ -37,8 +37,13 @@ class GarmentTypesController < ApplicationController
   end
 
   def destroy
-    @garment_type.destroy
-    redirect_to garment_types_url
+    if @garment_type.garments.empty?
+      @garment_type.destroy
+      redirect_to garment_types_path
+    else
+      flash[:error] = t('models.garment_type.cannot_delete_with_children')
+      redirect_to @garment_type
+    end
   end
   
   protected
