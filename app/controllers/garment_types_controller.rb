@@ -14,7 +14,7 @@ class GarmentTypesController < ApplicationController
     @garment_type = GarmentType.new(params[:garment_type])
 
     if @garment_type.save
-      flash[:notice] = "Garment type created successfully."
+      flash[:notice] = t('models.garment_type.created')
       redirect_to @garment_type
     else
       render :action => 'new'
@@ -29,7 +29,7 @@ class GarmentTypesController < ApplicationController
 
   def update
     if @garment_type.update_attributes(params[:garment_type])
-      flash[:notice] = "Garment type saved successfully."
+      flash[:notice] = t('models.garment_type.updated')
       redirect_to @garment_type
     else
       render :action => 'edit'
