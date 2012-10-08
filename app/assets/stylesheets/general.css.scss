@@ -1,14 +1,8 @@
-@import 'bootstrap/mixins';
-
 html {
     overflow-y: scroll;
 }
 
 .translation_missing {
-    background: #cc3343;
-    @include border-radius(2px)
-}
-
-.clear {
-    clear: both;
+    color: white;
+    background-color: red;
 }
