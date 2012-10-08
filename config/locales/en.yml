@@ -11,6 +11,7 @@ en:
       edit: "Edit garment"
       created: "Garment created successfully."
       updated: "Garment updated successfully."
+      sell: "Sell"
       selling: "Selling: %{model}"
       sold: "Garment sold successfully."
       already_sold: "This garment has already been sold!"

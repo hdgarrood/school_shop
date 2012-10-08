@@ -9,4 +9,6 @@
   - if @garment.sold?
     Sold #{render_datetime(@garment.sold_at)} ago.
   - else
-    Not sold yet.
+    = link_to t('models.garment.sell'),
+        sell_garment_path(@garment),
+        :class => 'btn btn-primary'
