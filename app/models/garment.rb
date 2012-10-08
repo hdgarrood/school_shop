@@ -5,7 +5,7 @@ class Garment < ActiveRecord::Base
   belongs_to :garment_type
   validates_presence_of :garment_type
   validates :price, :format => { :with => /^\d+??(?:\.\d{0,2})?$/ },
-                    :numericality => { :greater_than => 0 }
+                    :numericality => true
 
   def sold?
     !sold_at.nil?
