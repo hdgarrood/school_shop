@@ -1,4 +1,4 @@
-@import 'mixins';
+@import 'bootstrap/mixins';
 @import 'bootstrap/variables';
 
 header h1 {
@@ -16,7 +16,7 @@ section#main {
 .cards {
     display: block;
     background: $grayLighter;
-    @include border(3px);
+    @include border-radius(3px);
     margin-bottom: 10px;
     text-align: center;
     min-height: 40px;
