@@ -5,8 +5,6 @@ gem 'sqlite3'
 gem 'thin'
 gem 'passenger'
 
-gem 'value_object', '>= 0.1.1'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,6 +22,8 @@ gem 'twitter_bootstrap_form_for',
   :branch => 'all-modifications'
 gem 'jquery-rails'
 gem 'rails-i18n'
+
+gem 'value_object', '>= 0.1.1'
 
 group :development do
   gem 'simplecov'
