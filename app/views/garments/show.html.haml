@@ -6,9 +6,12 @@
   %strong= t(:price)
   = number_to_currency(@garment.price)
 %p
+  %strong= t('models.garment.created_at')
+  = l(@garment.created_at.to_date, :format => :long)
+%p
   - if @garment.sold?
-    %strong= t(:sold)
-    on #{l(@garment.sold_at.to_date, :format => :long)}.
+    %strong= t('models.garment.sold_at')
+    = l(@garment.sold_at.to_date, :format => :long)
   - else
     = link_to t('models.garment.sell'),
         sell_garment_path(@garment),
