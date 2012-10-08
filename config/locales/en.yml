@@ -17,6 +17,12 @@ en:
       confirm_price: "Confirm price"
       how_many: "There are currently %{count} garments in the database."
 
+  search:
+    search: "Search"
+    results:
+      header: "Search results"
+      none: "I couldn't find anything like that :("
+
   number:
     currency:
       format:
@@ -27,4 +33,3 @@ en:
   submit: "Submit"
   cancel: "Cancel"
   confirm: "Are you sure?"
-  search: "Search"
