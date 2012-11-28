@@ -19,3 +19,6 @@ Gemfile.lock
 /coverage
 public/assets
 config/database.yml
+
+# ignore docs
+/doc
