@@ -1,1 +1,2 @@
 add in_use (boolean) to garment_descriptions
+make cancel button on Garments#sell actually do something
