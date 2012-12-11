@@ -14,7 +14,7 @@ class GarmentTypesController < ApplicationController
     @garment_type = GarmentType.new(params[:garment_type])
 
     if @garment_type.save
-      flash[:notice] = t('models.garment_type.created')
+      flash[:notice] = t('garment_types.created')
       redirect_to @garment_type
     else
       render :action => 'new'
@@ -29,7 +29,7 @@ class GarmentTypesController < ApplicationController
 
   def update
     if @garment_type.update_attributes(params[:garment_type])
-      flash[:notice] = t('models.garment_type.updated')
+      flash[:notice] = t('garment_types.updated')
       redirect_to @garment_type
     else
       render :action => 'edit'
@@ -41,7 +41,7 @@ class GarmentTypesController < ApplicationController
       @garment_type.destroy
       redirect_to garment_types_path
     else
-      flash[:error] = t('models.garment_type.cannot_delete_with_children')
+      flash[:error] = t('garment_types.cannot_delete_with_children')
       redirect_to @garment_type
     end
   end

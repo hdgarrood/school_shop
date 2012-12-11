@@ -15,7 +15,7 @@ class GarmentsController < ApplicationController
   def create
     @garment = Garment.new(params[:garment])
     if @garment.save
-      flash[:notice] = t('models.garment.created', :model => @garment)
+      flash[:notice] = t('garments.created', :model => @garment)
       redirect_to @garment
     else
       render :action => 'new'
@@ -30,11 +30,11 @@ class GarmentsController < ApplicationController
       @garment.price = params[:garment][:price]
       @garment.sold_at = Time.now
       if @garment.save
-        flash[:notice] = t('models.garment.sold', :model => @garment)
+        flash[:notice] = t('garments.sold', :model => @garment)
         redirect_to @garment
       end
     elsif request.get? && @garment.sold?
-      flash[:warning] = t('models.garment.already_sold')
+      flash[:warning] = t('garments.already_sold')
       redirect_to @garment
     end
   end

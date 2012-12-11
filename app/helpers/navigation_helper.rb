@@ -16,9 +16,9 @@ module NavigationHelper
   # the third element, id, is only used for determining which is active
   def nav_elements
     [
-      [Garment.model_name.human.pluralize, garments_path, 'garments'],
-      [t('models.garment.new'), new_garment_path, 'new_garment'],
-      [GarmentType.model_name.human.pluralize, garment_types_path, 'garment_types']
+      [t('garments.name').pluralize, garments_path, 'garments'],
+      [t('garments.new'), new_garment_path, 'new_garment'],
+      [t('garment_types.name').pluralize, garment_types_path, 'garment_types']
     ]
   end
 
