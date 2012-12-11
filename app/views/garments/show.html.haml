@@ -1,16 +1,16 @@
 %h2= @garment
 %p
-  %strong= t('models.garment_type.short_name')
+  %strong= t('garment_types.short_name')
   = @garment.garment_type
 %p
   %strong= t(:price)
   = number_to_currency(@garment.price)
 %p
-  %strong= t('models.garment.created_at')
+  %strong= t('garments.created_at')
   = l(@garment.created_at.to_date, :format => :long)
 %p
   - if @garment.sold?
-    %strong= t('models.garment.sold_at')
+    %strong= t('garments.sold_at')
     = l(@garment.sold_at.to_date, :format => :long)
   - else
     = link_to t(:sell),

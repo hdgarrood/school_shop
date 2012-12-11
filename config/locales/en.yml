@@ -1,25 +1,26 @@
 en:
-  models:
-    garment_type:
-      name: "Garment type"
-      short_name: "Type"
-      new: "Add a garment type"
-      edit: "Edit garment type"
-      cannot_delete_with_children: "This garment type cannot be deleted, because there are still some garments of this type."
-      created: "Garment type created successfully."
-      updated: "Garment type saved successfully."
-    garment:
-      name: "Garment"
-      new: "Add a garment"
-      edit: "Edit garment"
-      created: "Garment created successfully."
-      updated: "Garment updated successfully."
-      selling: "Selling: %{model}"
-      sold: "Garment sold successfully."
-      already_sold: "This garment has already been sold!"
-      how_many: "There are currently %{count} garments in the database."
-      created_at: "Received on"
-      sold_at: "Sold on"
+  garment_types:
+    name: "Garment type"
+    short_name: "Type"
+    new: "Add a garment type"
+    edit: "Edit garment type"
+    cannot_delete_with_children: "This garment type cannot be deleted, because there are still some garments of this type."
+    created: "Garment type created successfully."
+    updated: "Garment type saved successfully."
+  garments:
+    name: "Garment"
+    id: "Garment ID"
+    new: "Add a garment"
+    edit: "Edit garment"
+    created: "Garment created successfully."
+    updated: "Garment updated successfully."
+    sold: "Garment sold successfully."
+    already_sold: "This garment has already been sold!"
+    how_many: "There are currently %{count} garments in the database."
+    created_at: "Received on"
+    sold_at: "Sold on"
+  sales:
+    new: "Selling:"
 
   sell: "Sell"
   sold: "Sold"

@@ -2,8 +2,8 @@
           :url => sales_path,
           :method => :post,
           :horizontal => true) do |f|
-  = f.hidden_field :id
-  = f.fieldset t('models.garment.selling', :model => @garment) do
+  = f.fieldset t('sales.new') do
+    = f.text_field :id, t('garments.id'), :class => 'input-small'
     = f.price_field :price, t(:confirm_price), :class => 'input-small'
     = f.actions do
       = f.submit t(:submit)

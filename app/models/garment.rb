@@ -16,4 +16,10 @@ class Garment < ActiveRecord::Base
   def to_s
     "#{self.class.model_name.human} ##{id}"
   end
+
+  def sell(price = nil)
+    self.price = price if price
+    self.sold_at = Time.now
+    self.save
+  end
 end
