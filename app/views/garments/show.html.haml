@@ -14,5 +14,5 @@
     = l(@garment.sold_at.to_date, :format => :long)
   - else
     = link_to t(:sell),
-        sell_garment_path(@garment),
+        new_sale_path(:garment_id => @garment.id),
         :class => 'btn btn-primary'

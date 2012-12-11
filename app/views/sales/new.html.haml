@@ -1,6 +1,8 @@
 = twitter_bootstrap_form_for(@garment,
-          :url => sell_garment_path(@garment),
+          :url => sales_path,
+          :method => :post,
           :horizontal => true) do |f|
+  = f.hidden_field :id
   = f.fieldset t('models.garment.selling', :model => @garment) do
     = f.price_field :price, t(:confirm_price), :class => 'input-small'
     = f.actions do
