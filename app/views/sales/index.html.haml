@@ -3,7 +3,7 @@
 %table.table.table-striped
   %thead
     %tr
-      %th ID
+      %th Garment
       %th Type
       %th Price
       %th Received date
@@ -14,6 +14,6 @@
         %tr
           %td= link_to(sg.to_short_s, garment_path(sg))
           %td= sg.garment_type
-          %td= sg.price
+          %td= number_to_currency(sg.price)
           %td= l(sg.created_at.to_date, :format => :long)
           %td= l(sg.sold_at.to_date, :format => :long)
