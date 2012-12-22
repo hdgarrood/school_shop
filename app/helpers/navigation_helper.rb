@@ -18,7 +18,8 @@ module NavigationHelper
     [
       [t('garments.name').pluralize, garments_path, 'garments'],
       [t('garments.new'), new_garment_path, 'new_garment'],
-      [t('garment_types.name').pluralize, garment_types_path, 'garment_types']
+      [t('garment_types.name').pluralize, garment_types_path, 'garment_types'],
+      [t('sales.name').pluralize, sales_path, 'sales']
     ]
   end
 

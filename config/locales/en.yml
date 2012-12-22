@@ -21,6 +21,7 @@ en:
     sold_at: "Sold on"
   sales:
     new: "Selling:"
+    name: "Sale"
 
   sell: "Sell"
   sold: "Sold"
