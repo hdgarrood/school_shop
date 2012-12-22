@@ -19,6 +19,10 @@ class Garment < ActiveRecord::Base
     "#{self.class.model_name.human} ##{id}"
   end
 
+  def to_short_s
+    "##{id}"
+  end
+
   def sell(new_price = nil)
     if sold?
       false
