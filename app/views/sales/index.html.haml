@@ -17,3 +17,8 @@
           %td= number_to_currency(sg.price)
           %td= l(sg.created_at.to_date, :format => :long)
           %td= l(sg.sold_at.to_date, :format => :long)
+
+%p.pull-right
+  = succeed ':' do
+    = t('also-available-as')
+  = link_to('CSV', url_for(:format => :csv))
