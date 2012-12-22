@@ -19,11 +19,11 @@ class Garment < ActiveRecord::Base
     "#{self.class.model_name.human} ##{id}"
   end
 
-  def sell(price = nil)
+  def sell(new_price = nil)
     if sold?
       false
     else
-      self.price = price if price
+      self.price = new_price if new_price
       self.sold_at = Time.now
       self.save
     end
