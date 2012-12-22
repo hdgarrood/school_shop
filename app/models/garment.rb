@@ -9,6 +9,8 @@ class Garment < ActiveRecord::Base
   validates :price, :format => { :with => /^\d+??(?:\.\d{0,2})?$/ },
                     :numericality => true
 
+  scope :sold, where('sold_at is not null')
+
   def sold?
     !sold_at.nil?
   end
@@ -18,8 +20,12 @@ class Garment < ActiveRecord::Base
   end
 
   def sell(price = nil)
-    self.price = price if price
-    self.sold_at = Time.now
-    self.save
+    if sold?
+      false
+    else
+      self.price = price if price
+      self.sold_at = Time.now
+      self.save
+    end
   end
 end

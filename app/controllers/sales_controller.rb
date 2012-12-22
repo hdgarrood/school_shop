@@ -4,6 +4,7 @@ class SalesController < ApplicationController
 
   # show a list of sales. Will soon also export CSV
   def index
+    @sold_garments = Garment.sold
   end
 
   # 'create' a new sale (sells a garment)
