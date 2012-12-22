@@ -1,10 +1,16 @@
+require 'csv'
+
 class SalesController < ApplicationController
   before_filter :find_garment,
                 :only => [:create, :new]
 
+  respond_to :html, :csv
+
   # show a list of sales. Will soon also export CSV
   def index
     @sold_garments = Garment.sold
+
+    respond_with @sold_garments
   end
 
   # 'create' a new sale (sells a garment)
