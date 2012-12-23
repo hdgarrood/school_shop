@@ -1,13 +1,13 @@
-%h2 Sales
+%h2= t('sales.name').pluralize
 
 %table.table.table-striped
   %thead
     %tr
-      %th Garment
-      %th Type
-      %th Price
-      %th Received date
-      %th Sold date
+      %th= t('garments.name')
+      %th= t('garment_types.short_name')
+      %th= t('price')
+      %th= t('garments.created_at')
+      %th= t('garments.sold_at')
   %tbody
     - if @sold_garments.any?
       - @sold_garments.each do |sg|
