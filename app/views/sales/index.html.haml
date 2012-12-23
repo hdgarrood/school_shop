@@ -3,20 +3,14 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= t('garments.name')
-      %th= t('garment_types.short_name')
-      %th= t('price')
-      %th= t('garments.created_at')
-      %th= t('garments.sold_at')
+      - garment_attributes(@sold_garments.first).map(&:first).each do |th|
+        %th= th
   %tbody
     - if @sold_garments.any?
       - @sold_garments.each do |sg|
         %tr
-          %td= link_to(sg.to_short_s, garment_path(sg))
-          %td= sg.garment_type
-          %td= number_to_currency(sg.price)
-          %td= l(sg.created_at.to_date, :format => :long)
-          %td= l(sg.sold_at.to_date, :format => :long)
+        - garment_attributes(sg).map(&:last).each do |td|
+          %td= td
 
 %p.pull-right
   = succeed ':' do
