@@ -34,7 +34,7 @@ module SalesHelper
       map(&:humanize).
       to_csv
     str << CSV.generate do |csv|
-      sold_garments.each do |sg|
+      sold_garments.find_each do |sg|
         csv << garment_attributes(sg, :csv).map(&:last)
       end
     end

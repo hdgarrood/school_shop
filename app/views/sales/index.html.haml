@@ -7,7 +7,7 @@
         %th= th
   %tbody
     - if @sold_garments.any?
-      - @sold_garments.each do |sg|
+      - @sold_garments.find_each do |sg|
         %tr
         - garment_attributes(sg).map(&:last).each do |td|
           %td= td
