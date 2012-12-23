@@ -20,7 +20,7 @@ en:
     created_at: "Received on"
     sold_at: "Sold on"
   sales:
-    new: "Selling:"
+    new: "Sell a garment"
     name: "Sale"
 
   sell: "Sell"
