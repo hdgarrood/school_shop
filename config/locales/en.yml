@@ -37,7 +37,7 @@ en:
   number:
     currency:
       format:
-        unit: "&pound;"
+        unit: "£"
   
   edit: "Edit"
   delete: "Delete"

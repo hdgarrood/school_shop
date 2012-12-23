@@ -32,8 +32,4 @@ class Garment < ActiveRecord::Base
       self.save
     end
   end
-
-  def as_csv
-    attributes
-  end
 end
